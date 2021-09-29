@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import './App.css';
+import PieceOfArt from './PieceOfArt'
 
 function App() {
   const [art, setArt] = useState([]);
@@ -31,11 +32,17 @@ function App() {
   
   return (
    <div className="App">
+     <PieceOfArt/ >
      <h1>view Dutch Art</h1>
      {
        art.map( artPiece => {
          return (
-          <img key={artPiece.id} src={artPiece.webImage.url} alt={artPiece.title} />
+          <PieceOfArt 
+          key={artPiece.id}
+          title={artPiece.title}
+          imgPath={artPiece.webImage.url}
+          
+          />
          );
        })
      }
